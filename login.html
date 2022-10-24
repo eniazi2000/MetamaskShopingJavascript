@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/Site.css" rel="stylesheet" />
     <script src="js/web3.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
 
     <link href="css/bootstrap.css" rel="stylesheet" />
     <title></title>
@@ -26,56 +27,7 @@
             </div>
         </div>
 
-        <script>
-            // function gettronweb() {
-            //     // if(window.tronWeb && window.tronWeb.defaultAddress.base58){
-            //     //     document.write("Yes, catch it:",window.tronWeb.defaultAddress.base58)
-            //     // }
-
-
-
-            //                 var obj = setInterval(async ()=>{
-            //         if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
-            //             clearInterval(obj)
-            //             var tronweb = window.tronWeb
-            //             var tx = await tronweb.transactionBuilder.sendTrx('TA1RwrVr4MPY2RBH1stYJsf19K6JU1VoTP', 10, 'TA1RwrVr4MPY2RBH1stYJsf19K6JU1VoTP')
-            //             var signedTx = await tronweb.trx.sign(tx)
-            //             var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
-            //             console.log(broastTx)
-            //         }
-            //     }, 10)
-
-
-
-
-            // }
-            // window.onload = async function () {
-            //     setTimeout(async function () {
-
-            //         tronWeb = window.tronWeb;
-            //         console.log("tronWeb : ", tronWeb);
-            //         console.log("tronweb is successfully fetched from window");
-
-            //         try {
-            //             var currentaddress = await tronWeb.address.fromHex((await tronWeb.trx.getAccount()).address.toString());
-
-            //             istronWeb = true;
-
-            //             var balance = await tronWeb.trx.getBalance(currentaddress);
-            //             balance = balance / (10 ** 6);
-            //             console.log(balance);
-
-
-            //         } catch {
-            //             console.log("Tronweb not defined");
-            //             istronWeb = false;
-            //         }
-            //     }, 1000);
-            // }//window onload
-
-        </script>
-
-        <hr>
+         <hr>
         <footer>
             <p>&copy; 2021 - bulltech.ir</p>
         </footer>

@@ -7,7 +7,7 @@
     <link href="css/Site.css" rel="stylesheet" />
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/web3.min.js"></script>
-
+    <script src="js/main.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <title></title>
 </head>
@@ -154,8 +154,9 @@
     </div>
 
 </body>
-<script src="js/main.js"></script>
+
 <script>
+const sumLabel = $("#sumLabel");
 
     $(".basket-item").find("b").click(function () {
         $(this).closest(".basket-item").remove();
@@ -182,9 +183,49 @@
         });
         $("#sumLabel").text(Sum);
     }
+
+    $("document").ready(function(){
+        $(".enableEthereumButton").click(function() {
+  getAccount();
+    });
+
+
+
+  $(".sendEthButton").click(function(){
+    alert("ehsan");
+    ethereum
+      .request({
+        method: "eth_sendTransaction",
+        params: [
+          {
+            from: accounts[0],
+            to: "0x88863C9c90913f5ca0354f52B315883d8C80F825",
+            value: web3.utils.toHex(web3.utils.toWei($(sumLabel).text())),
+            gasPrice: web3.utils.toHex(21000),
+            gas: web3.utils.toHex(21000),
+            // chainId: 0x4
+          },
+        ],
+      })
+      .then((txHash) => {
+        console.log(txHash)
+        createAlert("success", "buy is successfully ,  your transaction id :" + txHash);
+      })
+      .catch((error) => {
+        console.log(error.code);
+        createAlert("danger", "transaction is get error ,  error code :" + error.code + ",message : " + error.message);
+      });
+  });
+
+
+
+
+
     calculateSum();
     checkMetaMask();
     getAccount();
+    });
+
 </script>
 
 </html>
