@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/Site.css" rel="stylesheet" />
+    <script src="js/web3.min.js"></script>
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <title></title>
+</head>
+
+<body>
+    <div class="container body-content">
+        <div class="row" style="height: 80vh;">
+            <div class="col-md-offset-4 col-md-4">
+                <div class="login-form">
+                    <img src="img/metamask.png" class="logo-icon mmi" />
+                    <br>
+                    <label id="messageLabel"></label>
+                    <!-- <input type="text" class="form-control input-lg" id=""/> -->
+                    <br>
+                    <button class="btn btn-block btn-success btn-lg enableEthereumButton">Login with Metamask</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // function gettronweb() {
+            //     // if(window.tronWeb && window.tronWeb.defaultAddress.base58){
+            //     //     document.write("Yes, catch it:",window.tronWeb.defaultAddress.base58)
+            //     // }
+
+
+
+            //                 var obj = setInterval(async ()=>{
+            //         if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+            //             clearInterval(obj)
+            //             var tronweb = window.tronWeb
+            //             var tx = await tronweb.transactionBuilder.sendTrx('TA1RwrVr4MPY2RBH1stYJsf19K6JU1VoTP', 10, 'TA1RwrVr4MPY2RBH1stYJsf19K6JU1VoTP')
+            //             var signedTx = await tronweb.trx.sign(tx)
+            //             var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
+            //             console.log(broastTx)
+            //         }
+            //     }, 10)
+
+
+
+
+            // }
+            // window.onload = async function () {
+            //     setTimeout(async function () {
+
+            //         tronWeb = window.tronWeb;
+            //         console.log("tronWeb : ", tronWeb);
+            //         console.log("tronweb is successfully fetched from window");
+
+            //         try {
+            //             var currentaddress = await tronWeb.address.fromHex((await tronWeb.trx.getAccount()).address.toString());
+
+            //             istronWeb = true;
+
+            //             var balance = await tronWeb.trx.getBalance(currentaddress);
+            //             balance = balance / (10 ** 6);
+            //             console.log(balance);
+
+
+            //         } catch {
+            //             console.log("Tronweb not defined");
+            //             istronWeb = false;
+            //         }
+            //     }, 1000);
+            // }//window onload
+
+        </script>
+
+        <hr>
+        <footer>
+            <p>&copy; 2021 - bulltech.ir</p>
+        </footer>
+
+    </div>
+
+</body>
+<script src="js/main.js"></script>
+<script>
+    checkMetaMask();
+</script>
+
+</html>

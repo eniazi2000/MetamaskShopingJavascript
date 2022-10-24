@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/Site.css" rel="stylesheet" />
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/web3.min.js"></script>
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <title></title>
+</head>
+
+<body>
+    <div class="container body-content">
+
+        <div class="col-md-12">
+            <center>
+                <img src="img/metamask.png" class="logo-icon mmi" />
+                <img src="img/js.png" class="logo-icon" />
+                <img src="img/ether.png" class="logo-icon" />
+                <h1>Shoping sample with Ethereum and "Meta Mask"</h1>
+            </center>
+            <hr>
+            <div id="messageHolder">
+
+            </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="jumbotron">
+                <h2>Your account</h2>
+                <h4>Account : <span class="showAccount"></span></h4>
+                <span>Balance : <span class="AccountBalance"></span> Eth</span>
+                <hr>
+                <button class="enableEthereumButton btn-block btn btn-success btn-lg">Connect to Meta Mask</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <div class="jumbotron">
+                <h2>Your basket</h2>
+                <div class="row basket-list" sum-data="0">
+
+                </div>
+                <hr>
+                Sum : <b id="sumLabel">0</b> eth
+                <hr>
+                <button class="sendEthButton btn btn-block btn-warning btn-lg">Send Eth</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="product-card">
+                <center>
+                    <img src="img/d1.jpg" class="product-img">
+                </center>
+                <h3>Diesel watch Model : 1</h3>
+                <p>
+                    Procuring education on consulted assurance in do. Is sympathize he expression mr no travelling.
+                </p>
+                <span class="float-left">price:<b>0.005</b> eth</span>
+                <hr>
+                <button class="btn btn-success btn-lg btn-block">Add to cart</button>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="product-card">
+                <center>
+                    <img src="img/d2.jpg" class="product-img">
+                </center>
+                <h3>Diesel watch Model : 1</h3>
+                <p>
+                    Procuring education on consulted assurance in do. Is sympathize he expression mr no travelling.
+                </p>
+                <span class="float-left">price:<b>0.2</b> eth</span>
+                <hr>
+                <button class="btn btn-success btn-lg btn-block">Add to cart</button>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="product-card">
+                <center>
+                    <img src="img/d3.jpg" class="product-img">
+                </center>
+                <h3>Diesel watch Model : 1</h3>
+                <p>
+                    Procuring education on consulted assurance in do. Is sympathize he expression mr no travelling.
+                </p>
+                <span class="float-left">price:<b>0.9</b> eth</span>
+                <hr>
+                <button class="btn btn-success btn-lg btn-block">Add to cart</button>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="product-card">
+                <center>
+                    <img src="img/d4.jpg" class="product-img">
+                </center>
+                <h3>Diesel watch Model : 1</h3>
+                <p>
+                    Procuring education on consulted assurance in do. Is sympathize he expression mr no travelling.
+                </p>
+                <span class="float-left">price:<b>0.3</b> eth</span>
+                <hr>
+                <button class="btn btn-success btn-lg btn-block">Add to cart</button>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="product-card">
+                <center>
+                    <img src="img/d5.jpg" class="product-img">
+                </center>
+                <h3>Diesel watch Model : 1</h3>
+                <p>
+                    Procuring education on consulted assurance in do. Is sympathize he expression mr no travelling.
+                </p>
+                <span class="float-left">price:<b>0.45</b> eth</span>
+                <hr>
+                <button class="btn btn-success btn-lg btn-block">Add to cart</button>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="product-card">
+                <center>
+                    <img src="img/d6.jpg" class="product-img">
+                </center>
+                <h3>Diesel watch Model : 1</h3>
+                <p>
+                    Procuring education on consulted assurance in do. Is sympathize he expression mr no travelling.
+                </p>
+                <span class="float-left">price:<b>0.25</b> eth</span>
+                <hr>
+                <button class="btn btn-success btn-lg btn-block">Add to cart</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <hr />
+    <footer>
+        <p>&copy; 2021 - bulltech.ir</p>
+    </footer>
+
+    </div>
+
+</body>
+<script src="js/main.js"></script>
+<script>
+
+    $(".basket-item").find("b").click(function () {
+        $(this).closest(".basket-item").remove();
+        calculateSum();
+    });
+
+    $(".product-card").find("button").click(function () {
+        var amount = $(this).closest(".product-card").find("b").text();
+        var imageUrl = $(this).closest(".product-card").find("img").attr("src");
+        var str = '<div class="col-md-3 basket-item" sum-data="' + amount + '"><center><img src="' + imageUrl + '" class="product-img"></center><b>X</b></div>';
+        $(".basket-list").append(str);
+        $(".basket-item").find("b").click(function () {
+            $(this).closest(".basket-item").remove();
+            calculateSum();
+        });
+        calculateSum();
+    });
+
+    function calculateSum() {
+        var Sum = 0;
+        var list = $(".basket-list").find(".basket-item");
+        $(list).each(function (index) {
+            Sum += parseFloat($(this).attr("sum-data"));
+        });
+        $("#sumLabel").text(Sum);
+    }
+    calculateSum();
+    checkMetaMask();
+    getAccount();
+</script>
+
+</html>
